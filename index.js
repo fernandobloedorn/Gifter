@@ -9,7 +9,7 @@ app.get('/products', (req, res) => {
     res.json({"message": "Products..."})
 });
 
-const SERVER = app.listen('3333', '127.0.0.1', 
+const SERVER = app.listen(3333,
     () => {
         console.log('Working...')
     }
