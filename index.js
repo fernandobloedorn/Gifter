@@ -1,16 +1,30 @@
-const express = require('express');
-const app = express();
+const express = require("express");
+const db = require("./database/config");
+const mongoose = require("mongoose");
 
-app.get('/', (req, res) => {
-    res.json({"message": "Working..."})
-});
+class App {
+  constructor() {
+    this.express = express();
 
-app.get('/products', (req, res) => {
-    res.json({"message": "Products..."})
-});
+    this.database();
+    this.middlewares();
+    this.routes();
 
-const SERVER = app.listen(3333,
-    () => {
-        console.log('Working...')
-    }
-);
+    this.express.listen(3333, () =>
+      console.log(`Sua API REST está funcionando na porta 3333 `)
+    );
+  }
+
+  database() {
+    mongoose.connect(db.uri, { useNewUrlParser: true });
+  }
+
+  middlewares() {
+    this.express.use(express.json());
+  }
+
+  routes() {
+    this.express.use(require("./routes"));
+  }
+}
+module.exports = new App().express;
