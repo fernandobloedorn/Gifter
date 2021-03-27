@@ -8,7 +8,9 @@ routes.get("/", function(req, res) {
 });
 
 routes.get("/products", ProductController.index);
+routes.get("/product/:id", ProductController.findById);
 
 routes.post("/product", ProductController.store);
+routes.post("/products", ProductController.find);
 
 module.exports = routes;
