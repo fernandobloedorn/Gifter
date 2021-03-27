@@ -1,4 +1,4 @@
-const Product = require("../model/Product");
+const Product = require("../model/Product-old");
 
 class ProductController {
   async store(req, res) {
