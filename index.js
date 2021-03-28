@@ -1,6 +1,7 @@
 const express = require("express");
 const db = require("./database/config");
 const mongoose = require("mongoose");
+const cors = require('cors')
 
 class App {
   constructor() {
@@ -9,6 +10,8 @@ class App {
     this.database();
     this.middlewares();
     this.routes();
+
+    this.express.use(cors());
 
     this.express.listen(3333, () =>
       console.log(`Sua API REST está funcionando na porta 3333 `)
