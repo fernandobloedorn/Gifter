@@ -23,9 +23,10 @@ class ProductController {
     let find = {}
 
     if (gender && name) {
-      find = { '$and': [ { 'gender': gender }, { 'name' : { '$regex' : name, '$options' : 'i' } } ] }
+      // find = { '$and': [ { 'gender': gender }, { 'name' : { '$regex' : name, '$options' : 'i' } } ] }
+      find = { '$and': [ { '$or' : [{ 'gender': gender }, { 'gender': 'U'} ] }, { 'name' : { '$regex' : name, '$options' : 'i' } } ] }
     } else if (gender) {
-      find = { "gender": gender };
+      find = { '$or' : [{ 'gender': gender }, { 'gender': 'U'} ] };
     } else if (name) {
       find = { 'name' : { '$regex' : name, '$options' : 'i' } };
     }

@@ -17,6 +17,14 @@ const ProductSchema = new mongoose.Schema(
     gender: {
         type: String,
         required: true
+    },
+    img: {
+        type: String,
+        required: true
+    },
+    link: {
+        type: String,
+        required: true
       }
   },
   {
