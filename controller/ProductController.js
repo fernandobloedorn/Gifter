@@ -17,7 +17,18 @@ class ProductController {
 
     return res.json(data);
   }
-  async find(req, res) {
+  async find(req, res, next) {
+
+    // res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
+    // res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
+    // // res.header('Access-Control-Allow-Credentials', 'true');
+    // res.header('Access-Control-Allow-Headers', '*');
+    // next();
+    // res.header('Access-Control-Allow-Headers', 'Content-Type');
+    // Request headers you wish to allow
+    // res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
+
+
     const gender = req.body.gender;
     const name = req.body.name;
     let find = {}

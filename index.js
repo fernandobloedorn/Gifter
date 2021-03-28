@@ -11,8 +11,6 @@ class App {
     this.middlewares();
     this.routes();
 
-    this.express.use(cors());
-
     this.express.listen(3333, () =>
       console.log(`Sua API REST está funcionando na porta 3333 `)
     );
@@ -24,6 +22,7 @@ class App {
 
   middlewares() {
     this.express.use(express.json());
+    this.express.use(cors());
   }
 
   routes() {
