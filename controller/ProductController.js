@@ -31,6 +31,7 @@ class ProductController {
 
     const gender = req.body.gender;
     const name = req.body.name;
+
     let find = {}
 
     if (gender && name) {
